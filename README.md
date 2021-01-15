@@ -6,4 +6,4 @@ TikTok is a bit of a guilty pleasure, but due to lots of privacy concerns I don'
 
 This simple extension adds an overlay to the page allowing you to control the volume of all videos. It also stores and syncs this volume across page-loads, though this functionality appears to be a little flaky.
 
-![Example volume picker TikTok interface](https://up.jross.me/e9ez2glf)
+![Example volume picker TikTok interface](https://up.jross.me/m9dmxtb6)
