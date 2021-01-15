@@ -1,6 +1,16 @@
 'use strict';
 
 /* global chrome */
+
+function debounce(callback, wait){
+	let timeout;
+	return (...args) => {
+		const context = this;
+		clearTimeout(timeout);
+		timeout = setTimeout(() => callback.apply(context, args), wait);
+	};
+}
+
 (async function(){
 	// load html to inject for volume slider
 	// TODO: make this look nicer
@@ -23,15 +33,20 @@
 	let volume = 100;
 	rangeDom.value = volume;
 
+	const updateStorage = debounce(() => {
+		// debounced to prevent exceeding MAX_WRITE_OPERATIONS_PER_MINUTE
+		chrome.storage.sync.set({
+			volume: volume
+		}, () => {
+			// we tried
+		});
+	}, 500);
+
 	const updateVolume = (newVolume) => {
 		volume = newVolume;
 		rangeDom.value = newVolume;
 		outputDom.textContent = newVolume;
-		chrome.storage.sync.set({
-			volume: newVolume
-		}, () => {
-			// we tried
-		});
+		updateStorage();
 	};
 	chrome.storage.sync.get(['volume'], function(result){
 		if(!result.volume){ return; }
