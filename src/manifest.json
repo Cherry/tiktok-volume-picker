@@ -1,0 +1,26 @@
+{
+	"name": "TikTok Volume Picker",
+	"version": "1.0.0",
+	"description": "Allows you to customise output volume for all TikTok videos!",
+	"manifest_version": 2,
+
+	"permissions": [
+		"activeTab",
+		"storage"
+	],
+
+	"content_scripts": [
+		{
+			"matches": [
+				"*://*.tiktok.com/*",
+				"*://tiktok.com/*"
+			],
+			"all_frames": true,
+			"js": ["inject.js"]
+		}
+	],
+
+	"web_accessible_resources": [
+		"inject.html"
+	]
+}
