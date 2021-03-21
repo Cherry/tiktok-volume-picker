@@ -18,10 +18,10 @@
 		"lint": "eslint src"
 	},
 	"devDependencies": {
-		"eslint": "^7.17.0",
-		"eslint-config-nodecraft": "^7.2.0",
+		"@nodecraft/eslint-config": "^7.6.0",
+		"eslint": "^7.22.0",
 		"eslint-plugin-json": "^2.1.2",
 		"eslint-plugin-node": "^11.1.0",
-		"eslint-plugin-unicorn": "^26.0.1"
+		"eslint-plugin-unicorn": "^29.0.0"
 	}
 }
